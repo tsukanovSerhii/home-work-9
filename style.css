@@ -387,3 +387,46 @@ body {
 		font-size: var(--font-size-sm);
 	}
 }
+
+@media (max-width: 375px) {
+	.container {
+		padding: 0 16px;
+	}
+
+	.nav {
+		gap: 6px;
+	}
+
+	.nav-link {
+		font-size: 11px;
+		letter-spacing: 0;
+	}
+
+	.hero-title {
+		font-size: 22px;
+	}
+
+	.hero-text {
+		font-size: 13px;
+	}
+
+	.section-title {
+		font-size: 22px;
+	}
+
+	.section-text {
+		font-size: 13px;
+	}
+
+	.stat-item {
+		flex: 1 1 100%;
+	}
+
+	.stat-number {
+		font-size: 18px;
+	}
+
+	.footer-name {
+		font-size: 16px;
+	}
+}
