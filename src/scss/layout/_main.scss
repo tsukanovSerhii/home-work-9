@@ -1,0 +1,258 @@
+@use '../abstracts' as a;
+
+.container {
+	width: 100%;
+	max-width: a.$container-max-width;
+	margin: 0 auto;
+	padding: 0 a.$container-padding;
+
+	@include a.respond-to('small') {
+		padding: 0 16px;
+	}
+}
+
+.section-title {
+	font-size: a.$font-size-xl;
+	font-weight: 500;
+	line-height: a.$line-height-tight;
+	margin-bottom: 20px;
+	text-align: center;
+
+	@include a.respond-to('tablet') {
+		font-size: 26px;
+	}
+
+	@include a.respond-to('small') {
+		font-size: 22px;
+	}
+}
+
+.section-text {
+	font-size: a.$font-size-base;
+	font-weight: 400;
+	color: a.$color-text-gray;
+	max-width: 540px;
+	text-align: center;
+	line-height: a.$line-height-relaxed;
+
+	@include a.respond-to('tablet') {
+		max-width: 100%;
+	}
+
+	@include a.respond-to('mobile') {
+		font-size: a.$font-size-sm;
+	}
+
+	@include a.respond-to('small') {
+		font-size: a.$font-size-xs;
+	}
+}
+
+.hero {
+	padding: a.$section-padding 0 140px;
+
+	&-content {
+		@include a.flex-column;
+		max-width: 541px;
+
+		@include a.respond-to('tablet') {
+			max-width: 100%;
+		}
+	}
+
+	&-title {
+		font-size: a.$font-size-2xl;
+		font-weight: 500;
+		line-height: a.$line-height-base;
+		margin-bottom: 24px;
+		color: a.$color-text-dark;
+
+		@include a.respond-to('tablet') {
+			font-size: 36px;
+		}
+
+		@include a.respond-to('mobile') {
+			font-size: 28px;
+		}
+
+		@include a.respond-to('small') {
+			font-size: 24px;
+		}
+	}
+
+	&-text {
+		font-size: a.$font-size-base;
+		font-weight: 400;
+		color: a.$color-text-gray;
+		margin-bottom: 56px;
+		line-height: a.$line-height-relaxed;
+
+		@include a.respond-to('mobile') {
+			font-size: a.$font-size-sm;
+			margin-bottom: 36px;
+		}
+	}
+
+	@include a.respond-to('laptop') {
+		padding: 60px 0 100px;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 48px 0 72px;
+	}
+}
+
+.about {
+	padding: a.$section-padding 0;
+
+	&-content {
+		@include a.section-center-content;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 64px 0;
+	}
+}
+
+.stats {
+	background-color: a.$color-primary;
+	padding: 75px 0;
+
+	&-list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 24px;
+
+		@include a.respond-to('tablet') {
+			justify-content: center;
+			gap: 32px;
+		}
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 50px 0;
+	}
+}
+
+.stat-item {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	color: a.$color-text-light;
+
+	@include a.respond-to('tablet') {
+		flex: 1 1 calc(33% - 32px);
+		min-width: 130px;
+	}
+
+	@include a.respond-to('mobile') {
+		flex: 1 1 calc(50% - 32px);
+	}
+
+	@include a.respond-to('small') {
+		flex: 1 1 100%;
+	}
+}
+
+.stat-icon {
+	width: a.$stat-icon-size;
+	height: a.$stat-icon-size;
+	flex-shrink: 0;
+}
+
+.stat-info {
+	@include a.flex-column;
+}
+
+.stat-number {
+	font-size: a.$font-size-lg;
+	font-weight: 500;
+	line-height: a.$line-height-tight;
+
+	@include a.respond-to('small') {
+		font-size: 18px;
+	}
+}
+
+.stat-label {
+	font-size: a.$font-size-base;
+	font-weight: 400;
+	line-height: a.$line-height-base;
+}
+
+.process {
+	background-color: a.$color-bg-light;
+	padding: a.$section-padding 0;
+
+	&-content {
+		@include a.section-center-content;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 64px 0;
+	}
+}
+
+.video-wrapper {
+	margin-top: 60px;
+	width: 100%;
+	position: relative;
+	@include a.flex-center;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		display: block;
+		object-fit: cover;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: a.$video-overlay;
+		z-index: 1;
+	}
+
+	@include a.respond-to('tablet') {
+		margin-top: 36px;
+	}
+}
+
+.play-btn {
+	position: absolute;
+	width: a.$play-btn-size;
+	height: a.$play-btn-size;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	@include a.flex-center;
+	transition: transform 0.3s ease;
+	z-index: 2;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	@include a.respond-to('tablet') {
+		width: 72px;
+		height: 72px;
+
+		svg {
+			width: 72px;
+			height: 72px;
+		}
+	}
+
+	@include a.respond-to('small') {
+		width: 56px;
+		height: 56px;
+
+		svg {
+			width: 56px;
+			height: 56px;
+		}
+	}
+}

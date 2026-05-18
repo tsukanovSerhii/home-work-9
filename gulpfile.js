@@ -12,7 +12,7 @@ function styles() {
 		.src('src/scss/style.scss', { sourcemaps: true })
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest('css', { sourcemaps: '.' }))
+		.pipe(gulp.dest('assets/css', { sourcemaps: '.' }))
 		.pipe(bs.stream());
 }
 
