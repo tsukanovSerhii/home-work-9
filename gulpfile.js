@@ -12,8 +12,14 @@ function styles() {
 		.src('src/scss/style.scss', { sourcemaps: true })
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest('dist/css', { sourcemaps: '.' }))
+		.pipe(gulp.dest('css', { sourcemaps: '.' }))
 		.pipe(bs.stream());
+}
+
+function images() {
+	return gulp
+		.src('src/img/**/*')
+		.pipe(gulp.dest('img'));
 }
 
 function serve() {
@@ -23,8 +29,9 @@ function serve() {
 	});
 
 	gulp.watch('src/scss/**/*.scss', styles);
+	gulp.watch('src/img/**/*', images);
 	gulp.watch('*.html').on('change', bs.reload);
 }
 
-export const build = styles;
+export const build = gulp.parallel(styles, images);
 export default serve;
