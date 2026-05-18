@@ -1,0 +1,55 @@
+@use '../abstracts' as a;
+
+.hero {
+	padding: a.$section-padding 0 140px;
+
+	&-content {
+		@include a.flex-column;
+		max-width: 541px;
+
+		@include a.respond-to('tablet') {
+			max-width: 100%;
+		}
+	}
+
+	&-title {
+		font-size: a.$font-size-2xl;
+		font-weight: 500;
+		line-height: a.$line-height-base;
+		margin-bottom: 24px;
+		color: a.$color-text-dark;
+
+		@include a.respond-to('tablet') {
+			font-size: 36px;
+		}
+
+		@include a.respond-to('mobile') {
+			font-size: 28px;
+		}
+
+		@include a.respond-to('small') {
+			font-size: 24px;
+		}
+	}
+
+	&-text {
+		font-size: a.$font-size-base;
+		font-weight: 400;
+		color: a.$color-text-gray;
+		margin-bottom: 56px;
+		line-height: a.$line-height-relaxed;
+
+		@include a.respond-to('mobile') {
+			font-size: a.$font-size-sm;
+			margin-bottom: 36px;
+		}
+	}
+
+	@include a.respond-to('laptop') {
+		padding: 60px 0 100px;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 48px 0 72px;
+	}
+}

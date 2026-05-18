@@ -1,0 +1,13 @@
+@use '../abstracts' as a;
+
+.about {
+	padding: a.$section-padding 0;
+
+	&-content {
+		@include a.section-center-content;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 64px 0;
+	}
+}

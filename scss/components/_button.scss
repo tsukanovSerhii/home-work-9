@@ -1,0 +1,17 @@
+@use '../abstracts' as a;
+
+.btn {
+	@include a.btn-base;
+	background-color: a.$color-primary;
+	color: a.$color-text-light;
+	width: a.$btn-width;
+	height: a.$btn-height;
+
+	&:hover {
+		background-color: a.$color-primary-dark;
+	}
+
+	@include a.respond-to('mobile') {
+		width: 100%;
+	}
+}

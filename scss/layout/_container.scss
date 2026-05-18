@@ -1,0 +1,12 @@
+@use '../abstracts' as a;
+
+.container {
+	width: 100%;
+	max-width: a.$container-max-width;
+	margin: 0 auto;
+	padding: 0 a.$container-padding;
+
+	@include a.respond-to('small') {
+		padding: 0 16px;
+	}
+}

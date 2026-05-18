@@ -1,0 +1,33 @@
+@use '../abstracts' as a;
+
+.footer {
+	background-color: a.$color-primary;
+	padding: 50px 0;
+
+	&-content {
+		@include a.flex-column;
+		color: a.$color-text-light;
+	}
+
+	&-name {
+		font-size: a.$font-size-lg;
+		font-weight: 500;
+		line-height: a.$line-height-tight;
+		margin-bottom: 10px;
+
+		@include a.respond-to('small') {
+			font-size: a.$font-size-base;
+		}
+	}
+
+	&-copy {
+		font-size: a.$font-size-xs;
+		font-weight: 400;
+		line-height: a.$line-height-base;
+		color: a.$color-text-light;
+	}
+
+	@include a.respond-to('mobile') {
+		padding: 36px 0;
+	}
+}

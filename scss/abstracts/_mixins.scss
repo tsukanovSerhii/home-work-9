@@ -1,0 +1,45 @@
+@use 'variables' as v;
+
+// Media query mixins
+@mixin respond-to($breakpoint) {
+	@if $breakpoint == 'laptop' {
+		@media (max-width: v.$bp-laptop) { @content; }
+	} @else if $breakpoint == 'tablet' {
+		@media (max-width: v.$bp-tablet) { @content; }
+	} @else if $breakpoint == 'mobile' {
+		@media (max-width: v.$bp-mobile) { @content; }
+	} @else if $breakpoint == 'small' {
+		@media (max-width: v.$bp-small) { @content; }
+	}
+}
+
+// Flex helpers
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex-column($align: flex-start) {
+	display: flex;
+	flex-direction: column;
+	align-items: $align;
+}
+
+// Button base
+@mixin btn-base {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: v.$letter-spacing-nav;
+	font-size: v.$font-size-base;
+	font-weight: 400;
+	transition: background-color 0.3s ease;
+}
+
+// Section layout helper
+@mixin section-center-content {
+	@include flex-column(center);
+}

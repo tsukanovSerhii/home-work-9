@@ -1,0 +1,121 @@
+@use '../abstracts' as a;
+
+.top-wrapper {
+	background-color: a.$color-bg-light;
+}
+
+.header {
+	padding: a.$header-padding 0;
+
+	.container {
+		position: relative;
+	}
+
+	@include a.respond-to('laptop') {
+		padding: 36px 0;
+	}
+
+	@include a.respond-to('tablet') {
+		padding: 20px 0;
+	}
+}
+
+// Burger toggle — hidden input
+.nav-toggle {
+	display: none;
+}
+
+// Burger icon
+.nav-burger {
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 24px;
+	height: 18px;
+	cursor: pointer;
+	position: absolute;
+	right: a.$container-padding;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+
+	span {
+		display: block;
+		width: 100%;
+		height: 2px;
+		background-color: a.$color-text-dark;
+		border-radius: 2px;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+
+	@include a.respond-to('tablet') {
+		display: flex;
+	}
+}
+
+// Burger animation when open
+.nav-toggle:checked ~ .nav-burger {
+	span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+	span:nth-child(2) { opacity: 0; }
+	span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+// Navigation
+.nav {
+	display: flex;
+	align-items: center;
+	gap: a.$nav-gap;
+	flex-wrap: wrap;
+
+	@include a.respond-to('tablet') {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		position: absolute;
+		top: calc(100% + 20px);
+		left: 0;
+		right: 0;
+		background-color: a.$color-bg-light;
+		padding: 0;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.35s ease, padding 0.35s ease;
+		z-index: 9;
+	}
+}
+
+.nav-toggle:checked ~ .nav {
+	@include a.respond-to('tablet') {
+		max-height: 400px;
+		padding: 16px 0 24px;
+	}
+}
+
+.nav-link {
+	text-decoration: none;
+	color: a.$color-text-dark;
+	font-size: a.$font-size-base;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: a.$letter-spacing-nav;
+	transition: color 0.3s ease;
+
+	&.active {
+		color: a.$color-primary;
+		font-weight: 500;
+	}
+
+	&:hover {
+		color: a.$color-primary;
+	}
+
+	@include a.respond-to('tablet') {
+		font-size: a.$font-size-sm;
+		padding: 10px a.$container-padding;
+		width: 100%;
+
+		&:hover {
+			background-color: rgba(a.$color-primary, 0.06);
+		}
+	}
+}
