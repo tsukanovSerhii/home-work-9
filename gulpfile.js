@@ -16,12 +16,6 @@ function styles() {
 		.pipe(bs.stream());
 }
 
-function images() {
-	return gulp
-		.src('src/img/**/*')
-		.pipe(gulp.dest('img'));
-}
-
 function serve() {
 	bs.init({
 		server: { baseDir: '.' },
@@ -29,9 +23,8 @@ function serve() {
 	});
 
 	gulp.watch('src/scss/**/*.scss', styles);
-	gulp.watch('src/img/**/*', images);
 	gulp.watch('*.html').on('change', bs.reload);
 }
 
-export const build = gulp.parallel(styles, images);
+export const build = styles;
 export default serve;
