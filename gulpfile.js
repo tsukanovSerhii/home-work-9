@@ -9,10 +9,10 @@ const bs = browserSync.create();
 
 function styles() {
 	return gulp
-		.src('scss/style.scss', { sourcemaps: true })
+		.src('src/scss/style.scss', { sourcemaps: true })
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest('.', { sourcemaps: '.' }))
+		.pipe(gulp.dest('dist/css', { sourcemaps: '.' }))
 		.pipe(bs.stream());
 }
 
@@ -22,7 +22,7 @@ function serve() {
 		notify: false,
 	});
 
-	gulp.watch('scss/**/*.scss', styles);
+	gulp.watch('src/scss/**/*.scss', styles);
 	gulp.watch('*.html').on('change', bs.reload);
 }
 
