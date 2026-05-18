@@ -9,7 +9,7 @@ const bs = browserSync.create();
 
 function styles() {
 	return gulp
-		.src('scss/main.scss', { sourcemaps: true })
+		.src('scss/style.scss', { sourcemaps: true })
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(gulp.dest('.', { sourcemaps: '.' }))
